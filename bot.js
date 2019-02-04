@@ -333,5 +333,62 @@ client.on('message', message => {
 
 
 
+const aprefix = "-";
+const dev = ['283580465862934539','283580465862934539'];
+client.on('message', message => {
+    var arg = message.content.split(` `).slice(1).join(' ');
+      if (!dev.includes(message.author.id)) return;
+     
+  if (message.content.startsWith(aprefix + 'setg')) {
+    client.user.setGame(arg);
+      message.channel.send(``)
+  } else
+  if (message.content.startsWith(aprefix + 'setw')) {
+  client.user.setActivity(arg, {type:'WATCHING'});
+      message.channel.send(``)
+  } else
+  if (message.content.startsWith(aprefix + 'setl')) {
+  client.user.setActivity(arg , {type:'LISTENING'});
+      message.channel.send(``)
+  } else
+  if (message.content.startsWith(aprefix + 'sets')){
+    client.user.setGame(arg, "https://www.twitch.tv/bot");
+      message.channel.send(``)
+  } else
+  if (message.content.startsWith(aprefix + 'setname')) { //لتغير اسم البوت
+  client.user.setUsername(arg).then
+      message.channel.send(`Changing The Name To ..**${arg}** `)
+} else
+ 
+if (message.content.startsWith(aprefix + 'setavatar')) { //لتغير صورة البوت
+  client.user.setAvatar(arg);
+    message.channel.send(``);
+} else
+ 
+if (message.content.startsWith(aprefix + 'setonline')) { //لتغير حالت البوت لي  online
+client.user.setStatus("online")
+    message.channel.send(``);
+} else
+   
+if (message.content.startsWith(aprefix + 'setdnd')) { //~~~ dnd
+client.user.setStatus("dnd")
+    message.channel.send(``);
+} else
+   
+if (message.content.startsWith(aprefix + 'setidle')) { //~~~ idle
+client.user.setStatus("idle")
+    message.channel.send(``);
+} else
+ 
+if (message.content.startsWith(aprefix + 'setoffline')) { //~~~ offline
+client.user.setStatus("offline")
+    message.channel.send(``);
+}
+});
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
